@@ -28,4 +28,14 @@ router.get('/getAll/:topicId', (req, res, next) => {
         })
 })
 
+router.get('/getOne/:threadId', (req, res, next) => {
+    const { threadId } = req.params
+
+    Thread.findById(threadId).populate('author', 'username')
+        .then((response) => {
+            console.log(response)
+            res.json({ thread: response })
+        })
+})
+
 module.exports = router;
