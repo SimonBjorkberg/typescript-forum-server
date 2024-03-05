@@ -8,7 +8,6 @@ router.post('/create', (req, res, next) => {
     Thread.find()
         .then((response) => {
             length = response.length
-            console.log(length)
             Thread.create({ title, content, parentTopic, author, numId: length + 1 })
                 .then((createdThread) => {
                     res.json(createdThread)
@@ -33,7 +32,6 @@ router.get('/getOne/:threadId', (req, res, next) => {
 
     Thread.findById(threadId).populate('author', 'username')
         .then((response) => {
-            console.log(response)
             res.json({ thread: response })
         })
 })
