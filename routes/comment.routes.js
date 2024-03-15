@@ -7,7 +7,6 @@ router.post('/create', (req, res, next) => {
 
     Comment.create({ author, content, parentThread })
         .then((createdComment) => {
-            console.log(createdComment)
             res.status(200).json({ createdComment })
         })
         .catch((err) => {
