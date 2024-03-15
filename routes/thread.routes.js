@@ -66,9 +66,6 @@ router.post('/delete/:threadId', async (req, res, next) => {
             res.status(200).json({ message: "Thread Deleted" })
         }
     }
-
-
-
 })
 
 module.exports = router;

@@ -7,7 +7,11 @@ router.post('/create', (req, res, next) => {
 
     Comment.create({ author, content, parentThread })
         .then((createdComment) => {
-            res.status(200).json({ createdComment })
+            const newComment = createdComment
+            Comment.findById(newComment._id).populate('author', 'username')
+                .then((populatedComment) => {
+                    res.status(200).json({ populatedComment })
+                })
         })
         .catch((err) => {
             console.log(err)
