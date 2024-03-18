@@ -25,7 +25,10 @@ const threadRoutes = require('./routes/thread.routes');
 app.use("/thread", threadRoutes);
 
 const commentRoutes = require('./routes/comment.routes')
-app.use("/comment", commentRoutes)
+app.use("/comment", commentRoutes);
+
+const searchRoutes = require('./routes/search.routes')
+app.use("/search", searchRoutes);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);

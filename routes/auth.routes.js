@@ -20,8 +20,6 @@ const saltRounds = 10;
 router.post("/signup", (req, res, next) => {
   const { email, password, username } = req.body;
 
-  console.log(req.body)
-
   // Check if email or password or username are provided as empty strings
   if (email === "" || password === "" || username === "") {
     res.status(400).json({ message: "Provide email, password and username" });
@@ -79,8 +77,6 @@ router.post("/signup", (req, res, next) => {
 // POST  /auth/login - Verifies email and password and returns a JWT
 router.post("/login", (req, res, next) => {
   const { username, password } = req.body;
-
-  console.log(req.body)
 
   // Check if email or password are provided as empty string
   if (username === "" || password === "") {
