@@ -23,6 +23,7 @@ module.exports = (app) => {
   app.use(
     cors({
       origin: process.env.ORIGIN,
+      methods: ['GET', 'POST'],
     })
   );
 
